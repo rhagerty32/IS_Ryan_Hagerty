@@ -1,7 +1,7 @@
 import './App.css';
 import { Header } from './Header';
 import { useEffect, useState } from 'react';
-import { TeamCard } from './TeamCard';
+import { TeamList } from './TeamList';
 
 function App() {
     const [teams, setTeams] = useState([]);
@@ -14,19 +14,7 @@ function App() {
     return (
         <div className="App">
             <Header />
-            <div style={{
-                display: 'flex',
-                flexDirection: 'column',
-                justifyContent: 'center',
-                alignItems: 'center',
-                gap: '1rem',
-            }}>
-                {teams.length > 0 ? (
-                    teams.map((team, index) => <TeamCard key={index} team={team} />)
-                ) : (
-                    <p>Loading teams...</p>
-                )}
-            </div>
+            <TeamList teams={teams} />
         </div>
     );
 }
